@@ -1,0 +1,29 @@
+<h2>Scrivi il tuo nome!</h2>
+
+
+
+
+
+<!-- AREA DI DROP -->
+<div #dropZone class="construction-bar">
+  <span *ngFor="let letter of constructedLetters">{{ letter }}</span>
+</div>
+
+<!-- BOTTONE RESET -->
+<button (click)="removeLast()">
+  <fa-icon [icon]="faEraser"></fa-icon> Cancella ultima lettera
+</button>
+
+<!-- LETTERE DISPONIBILI -->
+<h3>Lettere disponibili:</h3>
+<div class="letters-container">
+  <div
+    *ngFor="let letter of availableLetters"
+    cdkDrag
+    (cdkDragEnded)="onDragEnd($event, letter)"
+  >
+    {{ letter }}
+  </div>
+</div>
+
+<button (click)="reset()">Resetta</button>

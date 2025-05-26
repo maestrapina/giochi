@@ -1,0 +1,112 @@
+/* Titoli centrati */
+h2, h3 {
+  text-align: center;
+}
+
+.construction-bar {
+  min-height: 120px;       /* raddoppio altezza minima */
+  margin: 20px auto;
+  padding: 20px;           /* più padding interno */
+  background-color: #d0f0c0;
+  width: 90%;              /* più larga */
+ 
+  border-radius: 12px;
+  display: flex;
+  gap: 15px;               /* più spazio tra le lettere */
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;       /* lettere un po' più grandi */
+  box-shadow: 0 2px 8px rgba(0, 128, 0, 0.3);
+  border: 3px solid green; /* bordo un po' più spesso */
+}
+
+
+
+
+/* Contenitore lettere disponibili */
+.letters-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Ogni lettera */
+.letters-container div {
+  width: 60px;
+  height: 60px;
+  background-color: #ffd966;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  border-radius: 10px;
+  cursor: grab;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  /* Compatibilità cross-browser */
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
+  /* Ottimizzazione touch */
+  will-change: transform;
+}
+
+/* Effetto quando viene premuta o trascinata */
+.letters-container div:active {
+  transform: scale(1.1);
+  cursor: grabbing;
+}
+
+/* Stile pulsanti */
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #f08080;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c05050;
+}
+
+/* Animazione e stile dell'elemento durante il drag */
+.cdk-drag-preview {
+  transform: scale(1.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  cursor: grabbing;
+}
+
+/* Nasconde il "fantasma" lasciato nel punto di origine */
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+/* Blocca lo scroll mentre si trascina su mobile */
+.cdk-drag {
+  touch-action: none;
+}
+
+/* Imposta touch rapido e fluido su dispositivi mobili */
+* {
+  touch-action: manipulation;
+}
+
+h2 {
+  margin-bottom: 90px; 
+}
+
+.letters-container {
+  margin-top: 50px;
+}
+
+
