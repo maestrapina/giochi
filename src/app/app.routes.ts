@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { Gioco1Component } from './gioco1/gioco1.component';
-
+import { ConcettiBaseGameComponent } from './concetti-base-game/concetti-base-game.component';
+import { ColoriPrimariGameComponent } from './colori-primari-game/colori-primari-game.component';
+import { FormeDimensioniGameComponent } from './forme-dimensioni-game/forme-dimensioni-game.component';
+import { FormeGeometricheGameComponent } from './forme-geometriche-game/forme-geometriche-game.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +25,22 @@ export const routes: Routes = [
     path: 'mesi-game',
     loadComponent: () => import('./mesi-game/mesi-game.component').then(m => m.MesiGameComponent)
   },
+  {
+  path: 'concetti-base',
+  component: ConcettiBaseGameComponent
+},
+{
+  path: 'colori-primari',
+  component: ColoriPrimariGameComponent
+},
+{
+  path: 'forme-dimensioni',
+  component: FormeDimensioniGameComponent
+},
+{
+  path: 'forme-geometriche',
+  component: FormeGeometricheGameComponent
+},
   {
     path: 'pianeti-parte1-video-game',
     loadComponent: () => import('./pianeti-parte1-video-game/pianeti-parte1-video-game.component').then(m => m.PianetiParte1VideoGameComponent)

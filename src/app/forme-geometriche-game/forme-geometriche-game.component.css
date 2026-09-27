@@ -1,0 +1,37 @@
+
+:host{display:block;min-height:100vh}
+*{box-sizing:border-box}
+button{font:inherit}
+.game-page{min-height:100vh;padding:20px;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#92ddff 0%,#e9f9ff 58%,#e5f7d0 100%)}
+.game-header{width:min(980px,100%);margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 16px;background:#fff;border-radius:30px;box-shadow:0 12px 30px rgba(31,100,151,.14)}
+.round-button{width:60px;height:60px;flex:0 0 60px;border:0;border-radius:50%;background:#fff;font-size:30px;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.progress-wrapper{flex:1;text-align:center;color:#4d7397;font-weight:800}
+.stars{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}
+.star{font-size:25px;color:#d8dee7}.star.completed{color:#ffc52e}
+.game-card{position:relative;width:min(980px,100%);margin:24px auto 0;padding:28px 30px 34px;background:#fff;border-radius:42px;box-shadow:0 20px 55px rgba(23,98,145,.18)}
+.instruction-box{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:16px}
+.instruction-box h1{margin:5px 0 0;color:#173f78;font-size:clamp(32px,5.5vw,54px);font-weight:900}
+.level-chip{display:inline-block;padding:8px 14px;border-radius:999px;background:#e8f3ff;color:#2a68b8;font-weight:900}
+.speaker-button{width:76px;height:76px;border:0;border-radius:50%;font-size:39px;cursor:pointer;background:linear-gradient(145deg,#4ea4ff,#2f7ae5);box-shadow:0 8px 0 #1d5fb8}
+.scene{min-height:355px;border-radius:34px;background:linear-gradient(180deg,#d9f5ff,#f8fdff 70%,#ddf4bd 70%,#c7e994);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:22px}
+.answers{width:min(820px,100%);margin:24px auto 0;display:grid;gap:18px}
+.two{grid-template-columns:repeat(2,1fr)}
+.three{grid-template-columns:repeat(3,1fr)}
+.answer{min-height:150px;border:5px solid transparent;border-radius:30px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px;transition:.16s ease}
+.answer:hover{transform:translateY(-3px)}
+.answer.selected{border-color:#fff;transform:translateY(-5px);box-shadow:0 0 0 6px rgba(55,126,231,.18)}
+.answer-label{font-size:clamp(23px,4vw,38px);font-weight:950;color:#163f79}
+.confirm-hint{padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.78);font-weight:900;color:#315b8c;font-size:13px}
+.feedback{position:absolute;inset:0;border-radius:42px;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:58px}
+.feedback strong{font-size:clamp(42px,7vw,70px)}
+.correct{background:rgba(225,255,216,.96);color:#248742}
+.retry{background:rgba(255,247,207,.96);color:#d17a00}
+.finish-screen{width:min(780px,100%);min-height:560px;margin:35px auto;padding:48px 24px;border-radius:45px;background:#fff;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 20px 60px rgba(27,95,139,.2)}
+.finish-emoji{font-size:95px}.finish-screen h1{font-size:clamp(50px,8vw,82px);color:#296bd2}.finish-stars{font-size:50px;margin:20px}
+.finish-buttons{display:flex;gap:18px}.play-again,.home-again{min-height:70px;border:0;border-radius:25px;font-weight:900;cursor:pointer}.play-again{padding:0 30px;background:linear-gradient(135deg,#7655f4,#a454eb);color:#fff;font-size:22px}.home-again{width:76px;font-size:31px;background:#eef4ff}
+@media(max-width:700px){.game-page{padding:10px}.game-card{padding:20px 12px}.instruction-box{flex-direction:column;text-align:center}.two,.three{grid-template-columns:1fr}.scene{min-height:310px}.round-button{width:48px;height:48px;flex-basis:48px;font-size:23px}}
+
+.target-shape{width:190px;height:190px;background:#ef4444;box-shadow:inset 0 -12px 0 rgba(0,0,0,.08),0 10px 20px rgba(0,0,0,.12)}.circle{border-radius:50%}.square{border-radius:14px}
+.mini-shape{width:72px;height:72px;background:#ef4444;display:block}.yellow-card{background:#fff2b3}.blue-card{background:#d9edff}
+.real-object.plate{width:220px;height:220px;border-radius:50%;background:#fff;border:18px solid #e6e6e6;box-shadow:0 10px 20px rgba(0,0,0,.15),inset 0 0 0 8px #fafafa}
+.real-object.window{width:220px;height:220px;background:#8edcff;border:16px solid #8b5a2b;border-radius:10px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;padding:8px}.real-object.window span{background:rgba(255,255,255,.35);border:4px solid #8b5a2b}

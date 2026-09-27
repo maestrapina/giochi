@@ -1,16 +1,240 @@
-<div class="home-container">
-  <h1>🎉 Benvenuti ai Giochi!</h1>
-  <p>Scegli un gioco per iniziare:</p>
+<div class="home-page">
+  <header class="topbar">
+    <a class="brand" routerLink="/" aria-label="Torna alla home">
+      <span class="brand-icon">🎮</span>
+      <span class="brand-text">Giochi <strong>Bambini</strong></span>
+    </a>
 
-  <button routerLink="/gioco1">Scrivi il tuo nome</button>
-  <button routerLink="/flower-game">Colora i fiori</button>
-  <button routerLink="/color-game" class="nav-button">Crea i colori</button>
-  <button routerLink="/mesi-game" class="nav-button">Gioca con i mesi</button>
-  <button routerLink="/pianeti-parte1-video-game" class="nav-button">Gioca con i pianeti</button>
-  <button routerLink="/number-game" class="nav-button">Gioca con i numeri</button>
-  <button routerLink="/indovina-prima-lettera-game" class="nav-button">Gioca con le lettere</button>
-    
+    <nav class="main-nav" aria-label="Navigazione principale">
+      <a class="nav-link active" routerLink="/">🏠 Home</a>
+      <a class="nav-link" href="#giochi">🎲 Giochi</a>
+      <a class="nav-link" href="#perche">✨ Perché giocare</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-decoration hero-decoration-left">📚</div>
+      <div class="hero-content">
+        <span class="eyebrow">IMPARARE DIVERTENDOSI</span>
+        <h1>Imparare <span>giocando!</span></h1>
+        <p>
+          Giochi educativi semplici e divertenti per allenare memoria,
+          logica, parole, numeri, colori e curiosità.
+        </p>
+
+        <div class="hero-pills" aria-label="Caratteristiche">
+          <span>🧠 Stimola la curiosità</span>
+          <span>💛 Impara divertendoti</span>
+          <span>⭐ Perfetto per la scuola</span>
+        </div>
+
+        <a class="hero-cta" href="#giochi">Scopri i giochi <span>↓</span></a>
+      </div>
+      <div class="hero-decoration hero-decoration-right">🌈</div>
+    </section>
+
+    <section class="games-section" id="giochi">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">🎮 SCEGLI E GIOCA</span>
+          <h2>I nostri giochi</h2>
+          <p>Scegli un'attività e inizia subito a divertirti.</p>
+        </div>
+      </div>
+
+      <div class="games-grid">
+        <article class="game-card card-yellow">
+          <div class="game-visual">
+            <span class="game-emoji">🔤</span>
+            <span class="spark spark-one">✦</span>
+            <span class="spark spark-two">✦</span>
+          </div>
+          <div class="game-content">
+            <span class="game-tag">LETTERE</span>
+            <h3>Indovina la prima lettera</h3>
+            <p>Osserva l'immagine e scopri con quale lettera inizia la parola.</p>
+            <button routerLink="/indovina-prima-lettera-game">Gioca <span>→</span></button>
+          </div>
+        </article>
+
+        <article class="game-card card-blue">
+          <div class="game-visual">
+            <span class="game-emoji">✍️</span>
+            <span class="spark spark-one">✦</span>
+          </div>
+          <div class="game-content">
+            <span class="game-tag">SCRITTURA</span>
+            <h3>Scrivi il tuo nome</h3>
+            <p>Un'attività semplice e divertente per iniziare a giocare con le parole.</p>
+            <button routerLink="/gioco1">Gioca <span>→</span></button>
+          </div>
+        </article>
+
+        <article class="game-card card-pink">
+          <div class="game-visual">
+            <span class="game-emoji">📅</span>
+            <span class="spark spark-two">✦</span>
+          </div>
+          <div class="game-content">
+            <span class="game-tag">TEMPO</span>
+            <h3>Gioca con i mesi</h3>
+            <p>Impara i mesi dell'anno attraverso un'attività colorata e interattiva.</p>
+            <button routerLink="/mesi-game">Gioca <span>→</span></button>
+          </div>
+        </article>
+
+        <article class="game-card card-green">
+          <div class="game-visual">
+            <span class="game-emoji">🌸</span>
+            <span class="spark spark-one">✦</span>
+          </div>
+          <div class="game-content">
+            <span class="game-tag">NATURA</span>
+            <h3>Colora i fiori</h3>
+            <p>Gioca con i fiori e completa l'attività scegliendo le risposte giuste.</p>
+            <button routerLink="/flower-game">Gioca <span>→</span></button>
+          </div>
+        </article>
+
+        <article class="game-card card-purple">
+          <div class="game-visual">
+            <span class="game-emoji">🎨</span>
+            <span class="spark spark-two">✦</span>
+          </div>
+          <div class="game-content">
+            <span class="game-tag">COLORI</span>
+            <h3>Crea i colori</h3>
+            <p>Scopri i colori, combinali e impara giocando con tanta fantasia.</p>
+            <button routerLink="/color-game">Gioca <span>→</span></button>
+          </div>
+        </article>
+
+        <article class="game-card card-orange">
+          <div class="game-visual">
+            <span class="game-emoji">🔢</span>
+            <span class="spark spark-one">✦</span>
+          </div>
+          <div class="game-content">
+            <span class="game-tag">NUMERI</span>
+            <h3>Gioca con i numeri</h3>
+            <p>Allena il riconoscimento dei numeri con un gioco rapido e intuitivo.</p>
+            <button routerLink="/number-game">Gioca <span>→</span></button>
+          </div>
+        </article>
+
+
+        <article class="game-card card-blue">
+          <div class="game-visual">
+            <span class="game-emoji">🧸</span>
+            <span class="spark spark-one">✦</span>
+            <span class="spark spark-two">✦</span>
+          </div>
+          <div class="game-content">
+            <span class="game-tag">CONCETTI BASE</span>
+            <h3>Dove si trova?</h3>
+            <p>Gioca con sopra e sotto, dentro e fuori, vicino e lontano, aperto e chiuso.</p>
+            <button routerLink="/concetti-base">Gioca <span>→</span></button>
+          </div>
+        </article>
+
+        <article class="game-card card-pink">
+          <div class="game-visual">
+            <span class="game-emoji">🎨</span>
+            <span class="spark spark-two">✦</span>
+          </div>
+          <div class="game-content">
+            <span class="game-tag">COLORI</span>
+            <h3>Colori primari</h3>
+            <p>Riconosci rosso, giallo e blu attraverso grandi immagini e istruzioni vocali.</p>
+            <button routerLink="/colori-primari">Gioca <span>→</span></button>
+          </div>
+        </article>
+
+        <article class="game-card card-green">
+          <div class="game-visual">
+            <span class="game-emoji">⚽</span>
+            <span class="spark spark-one">✦</span>
+          </div>
+          <div class="game-content">
+            <span class="game-tag">DIMENSIONI E QUANTITÀ</span>
+            <h3>Grande, piccolo e quantità</h3>
+            <p>Scopri grande e piccolo e gioca con uno, pochi e tanti.</p>
+            <button routerLink="/forme-dimensioni">Gioca <span>→</span></button>
+          </div>
+        </article>
+
+        <article class="game-card card-purple">
+          <div class="game-visual">
+            <span class="game-emoji">🔵</span>
+            <span class="spark spark-two">✦</span>
+          </div>
+          <div class="game-content">
+            <span class="game-tag">FORME</span>
+            <h3>Cerchio o quadrato?</h3>
+            <p>Riconosci le prime forme geometriche con un gioco semplice e visuale.</p>
+            <button routerLink="/forme-geometriche">Gioca <span>→</span></button>
+          </div>
+        </article>
+
+        <article class="game-card card-space featured-card">
+          <div class="game-visual">
+            <span class="game-emoji">🪐</span>
+            <span class="spark spark-one">✦</span>
+            <span class="spark spark-two">✦</span>
+          </div>
+          <div class="game-content">
+            <span class="game-tag">SPAZIO</span>
+            <h3>Viaggio tra i pianeti</h3>
+            <p>Parti per lo spazio e scopri il Sistema Solare attraverso video e giochi.</p>
+            <button routerLink="/pianeti-parte1-video-game">Inizia il viaggio <span>→</span></button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="benefits-section" id="perche">
+      <div class="benefits-intro">
+        <span class="section-kicker">✨ UN PICCOLO MONDO DI ATTIVITÀ</span>
+        <h2>Imparare può essere un gioco</h2>
+        <p>
+          Attività brevi, visuali e immediate, pensate per rendere l'apprendimento
+          più leggero e coinvolgente.
+        </p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <span>👀</span>
+          <div>
+            <h3>Immediato</h3>
+            <p>Pochi passaggi: scegli il gioco e comincia.</p>
+          </div>
+        </div>
+        <div class="benefit-card">
+          <span>🎯</span>
+          <div>
+            <h3>Coinvolgente</h3>
+            <p>Colori, immagini e attività diverse mantengono alta l'attenzione.</p>
+          </div>
+        </div>
+        <div class="benefit-card">
+          <span>💡</span>
+          <div>
+            <h3>Educativo</h3>
+            <p>Lettere, numeri, colori, mesi e pianeti in un unico spazio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <span>🎮</span>
+      <strong>Giochi Bambini</strong>
+      <small>Piccoli giochi per grandi idee 💛</small>
+    </div>
+    <a href="#giochi">Torna ai giochi ↑</a>
+  </footer>
 </div>
-
-
-

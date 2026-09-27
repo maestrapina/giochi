@@ -1,0 +1,23 @@
+<div class="game-page">
+<header class="game-header"><button class="round-button" (click)="tornaHome()">🏠</button><div class="progress-wrapper"><div>{{avanzamento}}</div><div class="stars"><span *ngFor="let d of domande;let i=index" class="star" [class.completed]="i<stelle">★</span></div></div><button class="round-button" (click)="leggiConsegna()">🔊</button></header>
+
+<main *ngIf="!giocoTerminato" class="game-card">
+<section class="instruction-box"><button class="speaker-button" (click)="leggiConsegna()">🔊</button><div><div class="level-chip">{{titolo}}</div><h1>{{domandaCorrente.modalita==='forma'?'Che forma è?':'A quale forma assomiglia?'}}</h1></div></section>
+
+<section class="scene">
+  <div *ngIf="domandaCorrente.modalita==='forma'" class="shape target-shape" [class.circle]="domandaCorrente.forma==='cerchio'" [class.square]="domandaCorrente.forma==='quadrato'"></div>
+  <div *ngIf="domandaCorrente.modalita==='oggetto' && domandaCorrente.oggetto==='piatto'" class="real-object plate"></div>
+  <div *ngIf="domandaCorrente.modalita==='oggetto' && domandaCorrente.oggetto==='finestra'" class="real-object window"><span></span><span></span><span></span><span></span></div>
+</section>
+
+<section class="answers two">
+  <button class="answer yellow-card" [class.selected]="rispostaSelezionata==='cerchio'" (click)="seleziona('cerchio')"><span class="mini-shape circle"></span><span class="answer-label">CERCHIO</span><span class="confirm-hint" *ngIf="rispostaSelezionata==='cerchio'">Tocca ancora</span></button>
+  <button class="answer blue-card" [class.selected]="rispostaSelezionata==='quadrato'" (click)="seleziona('quadrato')"><span class="mini-shape square"></span><span class="answer-label">QUADRATO</span><span class="confirm-hint" *ngIf="rispostaSelezionata==='quadrato'">Tocca ancora</span></button>
+</section>
+
+<div *ngIf="feedback==='corretto'" class="feedback correct"><div>⭐ ⭐ ⭐</div><strong>BRAVISSIMO!</strong><div>🎉</div></div>
+<div *ngIf="feedback==='sbagliato'" class="feedback retry"><div>💛</div><strong>RIPROVA!</strong></div>
+</main>
+
+<main *ngIf="giocoTerminato" class="finish-screen"><div class="finish-emoji">🔷</div><h1>Bravissimo!</h1><div class="finish-stars">⭐ ⭐ ⭐ ⭐ ⭐</div><div class="finish-buttons"><button class="play-again" (click)="ricomincia()">🔄 Gioca ancora</button><button class="home-again" (click)="tornaHome()">🏠</button></div></main>
+</div>

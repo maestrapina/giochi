@@ -1,0 +1,291 @@
+<div class="game-page">
+
+  <header class="game-header">
+
+    <button
+      class="round-button"
+      type="button"
+      (click)="tornaHome()"
+      aria-label="Torna alla home">
+      🏠
+    </button>
+
+    <div class="progress-wrapper">
+      <div class="progress-label">{{ avanzamento }}</div>
+
+      <div class="stars">
+        <span
+          *ngFor="let domanda of domande; let i = index"
+          class="star"
+          [class.completed]="i < stelle">
+          ★
+        </span>
+      </div>
+    </div>
+
+    <button
+      class="round-button"
+      type="button"
+      (click)="leggiConsegna()"
+      aria-label="Ascolta di nuovo">
+      🔊
+    </button>
+
+  </header>
+
+
+  <main *ngIf="!giocoTerminato" class="game-card">
+
+    <section class="instruction-box">
+
+      <button
+        class="speaker-button"
+        type="button"
+        (click)="leggiConsegna()"
+        aria-label="Ascolta la consegna">
+        🔊
+      </button>
+
+      <div class="instruction-copy">
+        <div class="level-chip">{{ titoloLivello }}</div>
+        <h1>{{ titoloDomanda }}</h1>
+      </div>
+
+    </section>
+
+
+    <section class="scene">
+
+      <!-- FASE 1:
+           nessun colore nella scena centrale.
+           Il bambino deve ascoltare la consegna. -->
+      <div
+        *ngIf="domandaCorrente.modalita === 'ascolta'"
+        class="listen-scene">
+
+        <button
+          class="big-listen-button"
+          type="button"
+          (click)="leggiConsegna()"
+          aria-label="Ascolta il colore">
+          🔊
+        </button>
+
+        <div class="listen-message">
+          Ascolta e scegli
+        </div>
+
+      </div>
+
+
+      <!-- FASE 2:
+           oggetti diversi, così non si copia il cerchio risposta. -->
+      <div
+        *ngIf="domandaCorrente.modalita === 'riconosci'"
+        class="object-stage">
+
+        <!-- MELA -->
+        <div
+          *ngIf="domandaCorrente.oggetto === 'mela'"
+          class="apple-object"
+          [ngClass]="domandaCorrente.colore">
+          <div class="apple-leaf"></div>
+          <div class="apple-stem"></div>
+        </div>
+
+        <!-- STELLA -->
+        <div
+          *ngIf="domandaCorrente.oggetto === 'stella'"
+          class="star-object"
+          [ngClass]="domandaCorrente.colore">
+          ★
+        </div>
+
+        <!-- PALLONCINO -->
+        <div
+          *ngIf="domandaCorrente.oggetto === 'palloncino'"
+          class="balloon-wrap">
+          <div
+            class="balloon-object"
+            [ngClass]="domandaCorrente.colore">
+          </div>
+          <div class="balloon-knot"></div>
+          <div class="balloon-string"></div>
+        </div>
+
+        <!-- FIORE -->
+        <div
+          *ngIf="domandaCorrente.oggetto === 'fiore'"
+          class="flower-object">
+
+          <div
+            class="petal p1"
+            [ngClass]="domandaCorrente.colore">
+          </div>
+          <div
+            class="petal p2"
+            [ngClass]="domandaCorrente.colore">
+          </div>
+          <div
+            class="petal p3"
+            [ngClass]="domandaCorrente.colore">
+          </div>
+          <div
+            class="petal p4"
+            [ngClass]="domandaCorrente.colore">
+          </div>
+
+          <div class="flower-center"></div>
+          <div class="flower-stem"></div>
+
+        </div>
+
+        <!-- SOLE -->
+        <div
+          *ngIf="domandaCorrente.oggetto === 'sole'"
+          class="sun-object">
+
+          <span
+            *ngFor="let raggio of [1,2,3,4,5,6,7,8]"
+            class="sun-ray"
+            [class]="'sun-ray ray-' + raggio">
+          </span>
+
+          <div
+            class="sun-center"
+            [ngClass]="domandaCorrente.colore">
+          </div>
+
+        </div>
+
+        <!-- AUTO -->
+        <div
+          *ngIf="domandaCorrente.oggetto === 'auto'"
+          class="car-object"
+          [ngClass]="domandaCorrente.colore">
+
+          <div class="car-window"></div>
+          <div class="wheel wheel-left"></div>
+          <div class="wheel wheel-right"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="answers three">
+
+      <button
+        class="answer red-card"
+        type="button"
+        [class.selected]="rispostaSelezionata === 'rosso'"
+        (click)="seleziona('rosso')">
+
+        <span class="color-dot rosso"></span>
+        <span class="answer-label">ROSSO</span>
+
+        <span
+          class="confirm-hint"
+          *ngIf="rispostaSelezionata === 'rosso'">
+          Tocca ancora
+        </span>
+
+      </button>
+
+
+      <button
+        class="answer yellow-card"
+        type="button"
+        [class.selected]="rispostaSelezionata === 'giallo'"
+        (click)="seleziona('giallo')">
+
+        <span class="color-dot giallo"></span>
+        <span class="answer-label">GIALLO</span>
+
+        <span
+          class="confirm-hint"
+          *ngIf="rispostaSelezionata === 'giallo'">
+          Tocca ancora
+        </span>
+
+      </button>
+
+
+      <button
+        class="answer blue-card"
+        type="button"
+        [class.selected]="rispostaSelezionata === 'blu'"
+        (click)="seleziona('blu')">
+
+        <span class="color-dot blu"></span>
+        <span class="answer-label">BLU</span>
+
+        <span
+          class="confirm-hint"
+          *ngIf="rispostaSelezionata === 'blu'">
+          Tocca ancora
+        </span>
+
+      </button>
+
+    </section>
+
+
+    <div
+      *ngIf="feedback === 'corretto'"
+      class="feedback correct">
+
+      <div class="feedback-stars">⭐ ⭐ ⭐</div>
+      <strong>BRAVISSIMO!</strong>
+      <div class="feedback-icon">🎉</div>
+
+    </div>
+
+
+    <div
+      *ngIf="feedback === 'sbagliato'"
+      class="feedback retry">
+
+      <div class="feedback-icon">💛</div>
+      <strong>RIPROVA!</strong>
+
+    </div>
+
+  </main>
+
+
+  <main
+    *ngIf="giocoTerminato"
+    class="finish-screen">
+
+    <div class="finish-emoji">🎨</div>
+
+    <h1>Bravissimo!</h1>
+
+    <div class="finish-stars">
+      ⭐ ⭐ ⭐ ⭐ ⭐
+    </div>
+
+    <div class="finish-buttons">
+
+      <button
+        class="play-again"
+        type="button"
+        (click)="ricomincia()">
+        🔄 Gioca ancora
+      </button>
+
+      <button
+        class="home-again"
+        type="button"
+        (click)="tornaHome()">
+        🏠
+      </button>
+
+    </div>
+
+  </main>
+
+</div>

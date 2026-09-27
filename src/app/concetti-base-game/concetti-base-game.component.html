@@ -1,0 +1,69 @@
+<div class="game-page">
+  <header class="game-header">
+    <button class="round-button" (click)="tornaHome()">🏠</button>
+    <div class="progress-wrapper"><div>{{ avanzamento }}</div><div class="stars"><span *ngFor="let d of domande; let i=index" class="star" [class.completed]="i < stelle">★</span></div></div>
+    <button class="round-button" (click)="leggiConsegna()">🔊</button>
+  </header>
+
+  <main *ngIf="!giocoTerminato" class="game-card">
+    <section class="instruction-box">
+      <button class="speaker-button" (click)="leggiConsegna()">🔊</button>
+      <div><div class="level-chip">{{ titoloLivello }}</div><h1>{{ domandaCorrente.titolo }}</h1></div>
+    </section>
+
+    <section class="scene">
+      <div *ngIf="domandaCorrente.scena === 'palla-sopra-tavolo'" class="vertical-scene">
+        <span class="obj">⚽</span>
+        <div class="real-table" aria-hidden="true">
+          <div class="real-table-top"></div>
+          <div class="real-table-legs">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="domandaCorrente.scena === 'gatto-sotto-sedia'" class="vertical-scene">
+        <span class="chair">🪑</span>
+        <span class="obj">🐱</span>
+      </div>
+
+      <div *ngIf="domandaCorrente.scena === 'orsetto-dentro-scatola'" class="box-scene">
+        <div class="toy-box">
+          <div class="toy-box-back"></div>
+          <div class="toy-box-inside"></div>
+          <div class="bear-in-box">🧸</div>
+          <div class="toy-box-front"></div>
+        </div>
+      </div>
+      <div *ngIf="domandaCorrente.scena === 'palla-fuori-cesto'" class="horizontal-scene"><span class="obj">⚽</span><span class="basket">🧺</span></div>
+
+      <div *ngIf="domandaCorrente.scena === 'cane-vicino-cuccia'" class="horizontal-scene near"><span class="obj">🐶</span><span class="house">🏠</span></div>
+      <div *ngIf="domandaCorrente.scena === 'ape-lontano-fiore'" class="horizontal-scene far"><span class="obj">🐝</span><span class="flower">🌼</span></div>
+
+      <div *ngIf="domandaCorrente.scena === 'scatola-aperta'" class="open-box-scene">
+        <div class="open-box"><div class="lid"></div><div class="inside-box"></div><div class="front-box"></div></div>
+      </div>
+      <div *ngIf="domandaCorrente.scena === 'porta-chiusa'" class="door-scene">🚪</div>
+    </section>
+
+    <section class="answers two">
+      <button *ngFor="let opzione of opzioni"
+              class="answer concept-answer"
+              [class.selected]="rispostaSelezionata === opzione"
+              (click)="seleziona(opzione)">
+        <span class="sound">🔊</span>
+        <span class="answer-label">{{ etichetta(opzione) | uppercase }}</span>
+        <span class="confirm-hint" *ngIf="rispostaSelezionata === opzione">Tocca ancora</span>
+      </button>
+    </section>
+
+    <div *ngIf="feedback === 'corretto'" class="feedback correct"><div>⭐ ⭐ ⭐</div><strong>BRAVISSIMO!</strong><div>🎉</div></div>
+    <div *ngIf="feedback === 'sbagliato'" class="feedback retry"><div>💛</div><strong>RIPROVA!</strong></div>
+  </main>
+
+  <main *ngIf="giocoTerminato" class="finish-screen">
+    <div class="finish-emoji">🎉</div><h1>Bravissimo!</h1><div class="finish-stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    <div class="finish-buttons"><button class="play-again" (click)="ricomincia()">🔄 Gioca ancora</button><button class="home-again" (click)="tornaHome()">🏠</button></div>
+  </main>
+</div>
