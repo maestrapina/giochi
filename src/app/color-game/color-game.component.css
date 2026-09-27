@@ -1,0 +1,59 @@
+.game-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  border: 2px solid #333;
+}
+
+.circle.arancione { background-color: orange; }
+.circle.verde { background-color: green; }
+.circle.viola { background-color: purple; }
+.circle.marrone { background-color: brown; }
+
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.colorful-button {
+  background: linear-gradient(45deg, #4CAF50, #81C784);
+  color: rgb(47, 53, 115);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.colorful-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+
+.message {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+

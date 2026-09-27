@@ -1,0 +1,72 @@
+<h2>Metti in ordine i numeri!</h2>
+
+<div class="number-selector">
+  <button (click)="toggleDropdown()" class="selector-button">
+    Seleziona un numero: <span class="selected-number">{{ inputNumber || 'Seleziona' }}</span>
+    <svg class="arrow" width="22" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div *ngIf="dropdownOpen" class="dropdown-menu">
+    <div 
+      *ngFor="let n of dropdownNumbers" 
+      (click)="selectNumber(n)" 
+      class="dropdown-item"
+      [class.hovered]="hovered === n"
+      (mouseover)="hovered = n"
+      (mouseleave)="hovered = null"
+    >
+      {{ n }}
+    </div>
+  </div>
+
+  <div class="button-group">
+    <button (click)="generateNumbers()" class="generate-button">Genera numeri</button>
+    <button (click)="reset()" class="generate-button">Resetta</button>
+</div>
+
+</div>
+
+
+
+
+
+<!-- AREA DI DROP -->
+<div #dropZone class="construction-bar">
+  <span *ngFor="let number of constructedNumbers">{{ number }}</span>
+</div>
+
+<!-- BOTTONE  
+<button (click)="removeLast()" class="generate-button"> <fa-icon [icon]="faEraser"></fa-icon> Cancella ultimo numero
+</button>-->
+
+<div class="button-group">
+  <button (click)="removeLast()" class="check-button"> <fa-icon [icon]="faEraser"></fa-icon> Cancella ultimo numero</button>
+</div>
+
+<label
+  class="feedback"
+  [style.color]="feedbackMessage === 'Bravo! 🎉' ? 'green' : 'red'">
+  {{ feedbackMessage }}
+</label>
+
+
+
+<!-- LETTERE DISPONIBILI -->
+<h3>Numeri disponibili:</h3>
+<div class="letters-container">
+  <div
+    *ngFor="let number of availableNumbers"
+    cdkDrag
+    (cdkDragEnded)="onDragEnd($event, number)"
+  >
+    {{ number }}
+  </div>
+</div>
+
+<div class="button-group">
+  <button (click)="controlla()" class="check-button">Controlla</button>
+</div>
+
+

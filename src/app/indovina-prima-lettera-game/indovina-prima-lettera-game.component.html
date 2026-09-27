@@ -1,0 +1,69 @@
+<div class="game-container">
+  <h1>Indovina la Prima Lettera</h1>
+
+  <div *ngIf="step === 'select'" class="select-groups">
+    <p>Quanti gruppi vogliono giocare?</p>
+    <button (click)="selectGroups(1)">1 Gruppo</button>
+    <button (click)="selectGroups(2)">2 Gruppi</button>
+    <button (click)="selectGroups(4)">4 Gruppi</button>
+  </div>
+
+  <div *ngIf="step === 'play'" class="play-area">
+    <p>Numero di gruppi: {{ numGroups }}</p>
+    <div class="groups">
+  <div
+    *ngFor="let group of groups; let i = index"
+    [class.active]="i === selectedGroupIndex"
+    class="group-card"
+  >
+    <strong>{{ group.name }}</strong><br>
+    <span class="points">{{ group.points }} punti</span>
+  </div>
+</div>
+
+    <div class="image-area">
+     <!--  <h2>{{ currentImage.name }}</h2> -->
+      <img [src]="currentImage.src" alt="{{ currentImage.name }}" class="image">
+    </div>
+
+    <div class="answer-section">
+      <div class="group-selector">
+  <label for="group-select">🎯 Gruppo che risponde:</label>
+  <select id="group-select" [(ngModel)]="selectedGroupIndex">
+    <option *ngFor="let group of groups; let i = index" [value]="i">
+      {{ group.name }}
+    </option>
+  </select>
+</div>
+
+
+<!-- AREA DI DROP -->
+<div #dropZone class="construction-bar">
+  <span *ngFor="let letter of constructedLetters">{{ letter }}</span>
+</div>
+
+<p class="feedback">{{ feedbackMessage }}</p>
+
+
+<!-- BOTTONE Controlla il risultato -->
+<button (click)="controllaIlRisultato()"> Controlla il risultato </button>
+<!-- BOTTONE immagine successiva  -->
+<button (click)="removeLast()">
+  <fa-icon [icon]="faEraser"></fa-icon> Cancella ultima lettera
+</button>
+
+<!-- LETTERE DISPONIBILI -->
+<h3>Lettere disponibili:</h3>
+<div class="letters-container">
+  <div
+    *ngFor="let letter of availableLetters"
+    cdkDrag
+    (cdkDragEnded)="onDragEnd($event, letter)"
+  >
+    {{ letter }}
+  </div>
+</div>
+
+
+
+    <button (click)="nextImage()">Prossima immagine</button>

@@ -1,0 +1,28 @@
+<div class="game-container">
+  <div class="months">
+    <div cdkDropList [cdkDropListConnectedTo]="['beforeList', 'afterList']" class="source-list">
+      <div *ngFor="let month of displayedMonths" cdkDrag [cdkDragData]="month" class="month-card">
+        <span>{{ month }}</span>
+        <button (click)="speak(month)">🔊</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="drop-zones">
+    <div cdkDropList id="beforeList" [cdkDropListConnectedTo]="['afterList']"
+         (cdkDropListDropped)="drop($event, 'before')" class="drop-box">
+      <h3>Prima</h3>
+      <div *ngFor="let month of beforeBox">{{ month }}</div>
+    </div>
+
+    <div cdkDropList id="afterList" [cdkDropListConnectedTo]="['beforeList']"
+         (cdkDropListDropped)="drop($event, 'after')" class="drop-box">
+      <h3>Dopo</h3>
+      <div *ngFor="let month of afterBox">{{ month }}</div>
+    </div>
+  </div>
+
+  <div class="feedback-message">{{ feedbackMessage }}</div>
+
+  <button class="next-button" (click)="pickTwoMonths()">Prossima sfida</button>
+</div>

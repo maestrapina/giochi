@@ -1,0 +1,41 @@
+.game-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.winner {
+  color: green;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.flowers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.flower-container {
+  width: 140px;
+  height: 140px;
+  cursor: pointer;
+}
+
+.flower-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  background-color: violet;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}

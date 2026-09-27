@@ -1,0 +1,31 @@
+<div class="game-container">
+  <h2>{{ domanda }}</h2>
+
+  <div class="image-container">
+    <img
+      src="assets/img/pianeti.png"
+      alt="Sistema solare"
+      (click)="gestisciClick($event)"
+      class="immagine-pianeti"
+    />
+  
+
+  
+
+  <div class="dropdown-wrapper">
+    <label for="planetSelect">Con quale parte vuoi giocare?</label>
+    <select id="planetSelect" (change)="selezionaParte($event)">
+      <option value="parte1">Parte 1: Terra, Venere, Mercurio</option>
+      <option value="parte2">Parte 2: Marte, Giove, Saturno</option>
+      <option value="parte3">Parte 3: Urano, Nettuno, Plutone</option>
+      <option value="parte4">Parte Completa: Tutti i pianeti</option>
+    </select>
+    </div>
+  </div>
+
+
+  <div *ngIf="feedback" class="feedback">
+    {{ feedback }}
+  </div>
+
+ </div>

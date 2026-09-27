@@ -1,0 +1,28 @@
+<div class="video-section">
+  <h2 class="video-title">Scopri i Pianeti!</h2>
+  <h2 class="video-title">PARTE 1 </h2>
+</div>
+<div class="video-container">
+  <video #videoPlayer width="100%" controls>
+    <source src="assets/video/Pianeti_parte1.mp4" type="video/mp4" />
+    Il tuo browser non supporta il tag video.
+  </video>
+
+   <div class="dropdown-wrapper">
+      <label for="planetSelect">Vai alle parte successive:</label>
+      <select id="planetSelect" (change)="selezionaParte($event)">
+        <option value="parte1"> Parte 1: Terra, Venere, Mercurio</option>
+        <option value="parte2"> Parte 2: Marte, Giove, Saturno</option>
+        <option value="parte3"> Parte 3: Urano, Nettuno, Plutone</option>
+        <option value="parte4"> Parte Completa: Tutti i pianeti</option>
+        
+      </select>
+    </div>
+
+
+  <div class="button-wrapper">
+    <button class="gioca-button" (click)="vaiAlGioco()">
+      Gioca!
+    </button>
+  </div>
+</div>

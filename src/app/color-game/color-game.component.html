@@ -1,0 +1,31 @@
+
+
+
+<div class="game-container">
+  <div class="circle" [ngClass]="targetColor"></div>
+
+  <div class="buttons">
+    <button 
+  *ngFor="let color of primaryColors"
+  [disabled]="selectedColors.includes(color)"
+  (click)="selectColor(color)"
+  [ngStyle]="{
+    'background-color': getButtonColor(color),
+    'width': '60px',
+    'height': '60px',
+    'margin': '5px',
+    'border-radius': '50%',
+    'border': '2px solid black'
+  }">
+  <span class="visually-hidden">{{ color }}</span>
+</button>
+
+<div class="button-container">
+  <button class="colorful-button"(click)="checkCombination()">Controlla il risultato</button>
+  </div>
+  </div>
+
+  <div class="message">
+    {{ message }}
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="game-container">
+  <h2 *ngIf="!gameWon && !haiCliccatoIlBottoneFine">Colora {{ targetNumber }} fiori!</h2>
+
+<button *ngIf="!haiCliccatoIlBottoneFine" (click)="checkResult()">Controlla risultato</button>
+<button *ngIf="haiCliccatoIlBottoneFine" (click)="startGame()">Gioca ancora</button>
+
+
+  <h2 *ngIf="gameWon && haiCliccatoIlBottoneFine" class="winner">Hai vinto! 🎉</h2>
+  <h2 *ngIf="!gameWon && haiCliccatoIlBottoneFine" class="winner">Hai perso! ❌ </h2>
+
+  <div class="flowers">
+    <div
+      *ngFor="let flower of flowers; let i = index"
+      class="flower-container"
+      (click)="onFlowerClick(i)"
+    >
+      <img [src]="getFlowerImage(i)" class="flower-img" alt="fiore" />
+    </div>
+  </div>
+
+  <button *ngIf="gameWon" (click)="startGame()">Gioca ancora</button>
+</div>

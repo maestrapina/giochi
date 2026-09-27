@@ -5,9 +5,9 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule],  // <-- aggiungi RouterModule
+  imports: [CommonModule, RouterModule],  
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']    // correggi da styleUrl a styleUrls
+  styleUrls: ['./home.component.css']    
 })
 export class HomeComponent {
 
