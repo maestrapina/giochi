@@ -68,5 +68,9 @@ export const routes: Routes = [
   {
     path: 'indovina-prima-lettera-game',
     loadComponent: () => import('./indovina-prima-lettera-game/indovina-prima-lettera-game.component').then(m => m.IndovinaPrimaLetteraGameComponent)
-  }
+  },
+  {
+    path: 'giochi-3-4/:slug',
+    loadComponent: () => import('./giochi-3-4/giochi-3-4.component').then(m => m.Giochi34Component)
+  },
 ];

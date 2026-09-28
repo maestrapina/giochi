@@ -636,3 +636,13 @@
     text-align: center;
   }
 }
+
+
+.preschool-heading{margin-top:54px;padding-top:38px;border-top:2px dashed rgba(40,120,255,.16)}
+.preschool-grid{margin-top:4px}
+.preschool-card.card-0 .game-visual{background:#fff2b3}
+.preschool-card.card-1 .game-visual{background:#d9edff}
+.preschool-card.card-2 .game-visual{background:#e2f7cf}
+.preschool-card.card-3 .game-visual{background:#ffe0e8}
+.preschool-card.card-4 .game-visual{background:#eee2ff}
+.preschool-card.card-5 .game-visual{background:#ffe6c7}

@@ -1,0 +1,60 @@
+<div class="game-page" *ngIf="gioco">
+  <header class="game-header">
+    <button class="round-button" (click)="tornaHome()" aria-label="Torna alla home">🏠</button>
+    <div class="progress-wrapper">
+      <strong>{{ gioco.titolo }}</strong>
+      <div>{{ avanzamento }}</div>
+      <div class="stars" aria-label="Stelle conquistate">
+        <span *ngFor="let q of gioco.domande; let i = index" class="star" [class.completed]="i < stelle">★</span>
+      </div>
+    </div>
+    <button class="round-button" (click)="leggiConsegna()" aria-label="Ascolta la consegna">🔊</button>
+  </header>
+
+  <main class="game-card" *ngIf="!finito">
+    <section class="instruction-box">
+      <button class="speaker-button" (click)="leggiConsegna()" aria-label="Ascolta">🔊</button>
+      <div>
+        <div class="level-chip">{{ gioco.categoria }}</div>
+        <h1>{{ domanda.consegna }}</h1>
+      </div>
+    </section>
+
+    <section class="scene">
+      <div class="main-visual" [class.silhouette]="gioco.slug === 'ombre'">{{ domanda.visuale }}</div>
+      <p *ngIf="domanda.dettaglio">{{ domanda.dettaglio }}</p>
+    </section>
+
+    <section class="answers" [class.two]="domanda.opzioni.length === 2" [class.three]="domanda.opzioni.length === 3">
+      <button
+        *ngFor="let opzione of domanda.opzioni"
+        class="answer"
+        [class.selected]="rispostaSelezionata === opzione.valore"
+        (click)="scegli(opzione)">
+        <span class="answer-emoji">{{ opzione.emoji }}</span>
+        <span class="answer-label">{{ opzione.label }}</span>
+        <span class="confirm-hint" *ngIf="rispostaSelezionata === opzione.valore">🔊 Tocca ancora per confermare</span>
+      </button>
+    </section>
+
+    <div *ngIf="feedback === 'corretto'" class="feedback correct">
+      <div>⭐ 🎉 ⭐</div>
+      <strong>BRAVISSIMO!</strong>
+    </div>
+    <div *ngIf="feedback === 'sbagliato'" class="feedback retry">
+      <div>💛</div>
+      <strong>RIPROVA!</strong>
+    </div>
+  </main>
+
+  <main class="finish-screen" *ngIf="finito">
+    <div class="finish-emoji">{{ gioco.emoji }}</div>
+    <h1>Bravissimo!</h1>
+    <p>Hai completato <strong>{{ gioco.titolo }}</strong>.</p>
+    <div class="finish-stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    <div class="finish-buttons">
+      <button class="play-again" (click)="ricomincia()">🔄 Gioca ancora</button>
+      <button class="home-again" (click)="tornaHome()">🏠</button>
+    </div>
+  </main>
+</div>

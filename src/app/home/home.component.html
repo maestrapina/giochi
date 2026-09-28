@@ -191,6 +191,30 @@
           </div>
         </article>
       </div>
+
+      <div class="section-heading preschool-heading">
+        <div>
+          <span class="section-kicker">🌈 PRIMO ANNO · 3-4 ANNI</span>
+          <h2>20 giochi per i più piccoli</h2>
+          <p>Attività brevi e visuali per colori, logica, linguaggio, autonomia ed emozioni.</p>
+        </div>
+      </div>
+
+      <div class="games-grid preschool-grid">
+        <article class="game-card preschool-card" *ngFor="let gioco of giochi34; let i = index" [ngClass]="['card-' + (i % 6)]">
+          <div class="game-visual">
+            <span class="game-emoji">{{ gioco.emoji }}</span>
+            <span class="spark spark-one">✦</span>
+            <span class="spark spark-two">✦</span>
+          </div>
+          <div class="game-content">
+            <span class="game-tag">{{ gioco.categoria }}</span>
+            <h3>{{ gioco.titolo }}</h3>
+            <p>{{ gioco.descrizione }}</p>
+            <button [routerLink]="['/giochi-3-4', gioco.slug]">Gioca <span>→</span></button>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="benefits-section" id="perche">
